@@ -29,6 +29,20 @@ function init() {
         utterance.voice = voices[i];
       }
     }
+
     speechSynthesis.speak(utterance);
+
+    let img = document.querySelector('img');
+    utterance.addEventListener('start', () => {
+      img.src = 'assets/images/smiling-open.png';
+      img.alt = "Smiling open face";
+    });
+
+    utterance.addEventListener('end', () => {
+      img.src = 'assets/images/smiling.png';
+      img.alt = "Smiling face";
+    });
+
   });
+
 }
